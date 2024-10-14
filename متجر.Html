@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الألعاب والبرامج</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .marquee {
+            background-color: #ffff00; /* اللون الأصفر الفاقع */
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .marquee p {
+            display: inline-block;
+            padding: 15px;
+            color: red; /* اللون الأحمر */
+            animation: marquee 15s linear infinite; /* سرعة الحركة */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .download-button, .change-image-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .overlay {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .overlay img {
+            display: block;
+        }
+
+        .overlay .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* تنسيق الزر لإضافة لوحات جديدة */
+        .add-panel {
+            margin: 20px 0;
+        }
+
+        .add-panel input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>متجر الألعاب والبرامج</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('android-apps')">برامج أندرويد</a></li>
+                <li><a href="#" onclick="showSection('android-games')">ألعاب أندرويد</a></li>
+                <li><a href="#" onclick="showSection('windows-apps')">برامج ويندوز</a></li>
+                <li><a href="#" onclick="showSection('windows-games')">ألعاب ويندوز</a></li>
+                <li><a href="#" onclick="showSection('code-viewer')">عرض الكود</a></li> <!-• قسم عرض الكود -->
+            </ul>
+        </nav>
+    </header>
+    <div class="marquee">
+        <p>مرحبا بكم في موقع شامنا لتحميل البرامج والألعاب للويندوز والأندرويد. لطلب الألعاب والبرامج يمكنكم التواصل معنا من قسم الدعم.</p>
+    </div>
+    <main>
+        <section id="android-apps" class="section">
+            <h2>برامج أندرويد</h2>
+            <div class="add-panel">
+                <h3>إضافة لوحة جديدة</h3>
+                <input type="file" id="imageInput1" accept="image/*">
+                <input type="text" id="nameInput1" placeholder="اسم اللوحة">
+                <button onclick="addPanel('android-apps')">إضافة</button>
+            </div>
+            <div class="product-grid" id="android-apps-grid">
+                <div class="product overlay">
+                    <img src="image1.jpg" alt="يوهو">
+                    <div class="text">يوهو</div>
+                    <a href="https://www.mediafire.com/download/yourlink1" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput1')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image2.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink2" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image3.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink3" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image4.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink4" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image5.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink5" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput5')">تغيير الصورة</button>
+                </div>
+            </div>
+        </section>
+        <section id="android-games" class="section">
+            <h2>ألعاب أندرويد</h2>
+            <div class="add-panel">
+                <h3>إضافة لوحة جديدة</h3>
+                <input type="file" id="imageInput2" accept="image/*">
+                <input type="text" id="nameInput2" placeholder="اسم اللوحة">
+                <button onclick="addPanel('android-games')">إضافة</button>
+            </div>
+            <div class="product-grid" id="android-games-grid">
+                <div class="product overlay">
+                    <img src="image6.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink11" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image7.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink12" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image8.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink13" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image9.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink14" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image10.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink15" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput2')">تغيير الصورة</button>
+                </div>
+            </div>
+        </section>
+        <section id="windows-apps" class="section">
+            <h2>برامج ويندوز</h2>
+            <div class="add-panel">
+                <h3>إضافة لوحة جديدة</h3>
+                <input type="file" id="imageInput3" accept="image/*">
+                <input type="text" id="nameInput3" placeholder="اسم اللوحة">
+                <button onclick="addPanel('windows-apps')">إضافة</button>
+            </div>
+            <div class="product-grid" id="windows-apps-grid">
+                <div class="product overlay">
+                    <img src="image11.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink21" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image12.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink22" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image13.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink23" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image14.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink24" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image15.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink25" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput3')">تغيير الصورة</button>
+                </div>
+            </div>
+        </section>
+        <section id="windows-games" class="section">
+            <h2>ألعاب ويندوز</h2>
+            <div class="add-panel">
+                <h3>إضافة لوحة جديدة</h3>
+                <input type="file" id="imageInput4" accept="image/*">
+                <input type="text" id="nameInput4" placeholder="اسم اللوحة">
+                <button onclick="addPanel('windows-games')">إضافة</button>
+            </div>
+            <div class="product-grid" id="windows-games-grid">
+                <div class="product overlay">
+                    <img src="image16.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink31" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image17.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink32" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image18.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink33" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image19.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink34" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+                <div class="product overlay">
+                    <img src="image20.jpg" alt="شامنا">
+                    <div class="text">شامنا</div>
+                    <a href="https://www.mediafire.com/download/yourlink35" class="download-button">تنزيل</a>
+                    <button class="change-image-button" onclick="changeImage(this, 'imageInput4')">تغيير الصورة</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 متجر الألعاب والبرامج. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            // إظهار القسم المحدد
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block';
+        }
+
+        function addPanel(sectionId) {
+            const imageInput = document.getElementById(`imageInput${sectionId === 'android-apps' ? 1 : sectionId === 'android-games' ? 2 : sectionId === 'windows-apps' ? 3 : 4}`);
+            const nameInput = document.getElementById(`nameInput${sectionId === 'android-apps' ? 1 : sectionId === 'android-games' ? 2 : sectionId === 'windows-apps' ? 3 : 4}`);
+            const grid = document.getElementById(`${sectionId}-grid`);
+
+            const file = imageInput.files[0];
+            const fileURL = URL.createObjectURL(file);
+            const name = nameInput.value || "شامنا";
+
+            const newProduct = document.createElement('div');
+            newProduct.className = 'product overlay';
+            newProduct.innerHTML = `
+                <img src="${fileURL}" alt="${name}">
+                <div class="text">${name}</div>
+                <a href="#" class="download-button">تنزيل</a>
+                <button class="change-image-button" onclick="changeImage(this, 'imageInput${sectionId === 'android-apps' ? 1 : sectionId === 'android-games' ? 2 : sectionId === 'windows-apps' ? 3 : 4}')">تغيير الصورة</button>
+            `;
+
+            grid.appendChild(newProduct);
+            savePanel(sectionId, name, fileURL);
+            imageInput.value = '';
+            nameInput.value = '';
+        }
+
+        function changeImage(button, inputId) {
+            const product = button.parentElement; // الحصول على العنصر الخاص باللوحة
+            const imageInput = document.getElementById(inputId);
+            const file = imageInput.files[0];
+
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                const imgElement = product.querySelector('img'); // الحصول على عنصر الصورة
+                imgElement.src = fileURL; // تحديث مصدر الصورة
+            }
+        }
+
+        function savePanel(sectionId, name, imageURL) {
+            let panels = JSON.parse(localStorage.getItem(sectionId)) || [];
+            panels.push({ name, imageURL });
+            localStorage.setItem(sectionId, JSON.stringify(panels));
+        }
+
+        function loadPanels() {
+            const sections = ['android-apps', 'android-games', 'windows-apps', 'windows-games'];
+            sections.forEach(sectionId => {
+                const panels = JSON.parse(localStorage.getItem(sectionId)) || [];
+                panels.forEach(panel => {
+                    const grid = document.getElementById(`${sectionId}-grid`);
+                    const newProduct = document.createElement('div');
+                    newProduct.className = 'product overlay';
+                    newProduct.innerHTML = `
+                        <img src="${panel.imageURL}" alt="${panel.name}">
+                        <div class="text">${panel.name}</div>
+                        <a href="#" class="download-button">تنزيل</a>
+                        <button class="change-image-button" onclick="changeImage(this, 'imageInput${sectionId === 'android-apps' ? 1 : sectionId === 'android-games' ? 2 : sectionId === 'windows-apps' ? 3 : 4}')">تغيير الصورة</button>
+                    `;
+                    grid.appendChild(newProduct);
+                });
+            });
+        }
+
+        // تحميل اللوحات عند فتح الصفحة
+        window.onload = loadPanels;
+    </script>
+</body>
+</html>
